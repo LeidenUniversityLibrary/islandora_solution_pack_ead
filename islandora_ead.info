@@ -24,3 +24,5 @@ version = 7.x-dev
 core = 7.x
 
 scripts[] = js/eadPopovers.js
+
+stylesheets[print][] = css/print.css

@@ -1,0 +1,26 @@
+/* EAD print styles */
+.ead-toc{
+    display:none;
+}
+
+.ead-content .body{
+    overflow:visible !important;
+    max-height:none !important;
+}
+
+.ead-content, .ead-whole, .ead-content, .dc-content, .dc-centercontent, body, .islandora-ead-object{
+    padding:0 !important;
+    background:none;
+    border:0;
+    margin:0;
+    max-width:none;
+    background-color:white;
+}
+
+.tabs, .title, #page > #theheader, .region-page-top, .dc-sidebox, .dc-box, footer#thefooter{
+    display:none;
+}
+
+html{
+    color:black;
+}
