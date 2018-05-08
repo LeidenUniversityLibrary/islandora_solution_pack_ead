@@ -24,3 +24,12 @@
 html {
     color: black !important;
 }
+
+.ead-section {
+    page-break-before: always;
+    display:block;
+}
+
+#ead0{
+    page-break-before: avoid;
+}
