@@ -26,6 +26,10 @@
  * Implements template_preprocess_HOOK().
  */
 function islandora_ead_preprocess_islandora_ead(&$variables) {
+  // Add print css
+  drupal_add_css(drupal_get_path('module', 'islandora_ead') . '/css/print.css', array('every_page' => false, 'media' => 'print'));
+
+  // Build page content
   $object = $variables['object'];
 
   module_load_include('inc', 'islandora_ead', 'includes/utilities');
