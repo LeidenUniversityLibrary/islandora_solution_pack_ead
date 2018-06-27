@@ -27,50 +27,77 @@
  */
 function islandora_ead_preprocess_islandora_ead(&$variables) {
   $object = $variables['object'];
+  $narrative = '';
 
   module_load_include('inc', 'islandora_ead', 'includes/utilities');
   $associated_objs = islandora_ead_retrieve_associations($object->id);
 
-  $xsl = new DOMDocument();
-  $xsl->load(drupal_get_path('module', 'islandora_ead') . '/xml/islandora_eadToHTML.xsl');
+  if (isset($object['EAD'])) {
+    try {
+      $xsl = new DOMDocument();
+      if ($xsl->load(drupal_get_path('module', 'islandora_ead') . '/xml/islandora_eadToHTML.xsl') === FALSE) {
+        throw new Exception('Error loading EAD XSLT');
+      }
 
-  $xslt = new XSLTProcessor();
-  $xslt->importStyleSheet($xsl);
+      $xslt = new XSLTProcessor();
+      if ($xslt->importStyleSheet($xsl) === FALSE) {
+        throw new Exception('Error importing XSLT');
+      }
 
-  $object_actual_dom = new DOMDocument();
-  $object_actual_dom->preserveWhiteSpace = FALSE;
-  $object_actual_dom->loadXML($object['EAD']->content);
-  $object_actual_dom = $xslt->transformToDoc($object_actual_dom);
+      $object_actual_dom = new DOMDocument();
+      $object_actual_dom->preserveWhiteSpace = FALSE;
+      if ($object_actual_dom->loadXML($object['EAD']->content) === FALSE) {
+        throw new Exception('Error loading EAD XML');
+      }
+      $object_actual_dom = $xslt->transformToDoc($object_actual_dom);
+      if ($object_actual_dom === FALSE) {
+        throw new Exception('Error transforming EAD');
+      }
+      $transformed_xml = simplexml_import_dom($object_actual_dom);
+      if ($transformed_xml  === FALSE || $transformed_xml  === NULL) {
+        throw new Exception('Error making SimpleXML');
+      }
 
-  $transformed_xml = simplexml_import_dom($object_actual_dom);
+      $xpath = new DOMXpath($object_actual_dom);
+      if (!$xpath) {
+        throw new Exception('Error making DOMXPath');
+      }
 
-  $xpath = new DOMXpath($object_actual_dom);
-  foreach ($associated_objs as $levelid => $pid) {
-    $elements = $xpath->query("//*[@id='$levelid']");
+      foreach ($associated_objs as $levelid => $pid) {
+        $elements = $xpath->query("//*[@id='$levelid']");
 
-    foreach ($elements as $element) {
-      if ($element->childNodes->length > 0) {
-        $href = $object_actual_dom->createElement('a');
-        $href->setAttribute('href', "/islandora/object/$pid");
-        $href->setAttribute('class', "hasPopover");
+        foreach ($elements as $element) {
+          if ($element->childNodes->length > 0) {
+            $href = $object_actual_dom->createElement('a');
+            $href->setAttribute('href', "/islandora/object/$pid");
+            $href->setAttribute('class', "hasPopover");
 
-        $child_node = $element->childNodes->item(0);
-        $sibling_node = $child_node->nextSibling;
+            $child_node = $element->childNodes->item(0);
+            $sibling_node = $child_node->nextSibling;
 
-        $element->removeChild($child_node);
-        $href->appendChild($child_node);
-        if ($sibling_node === NULL) {
-          $element->appendChild($href);
-        }
-        else {
-          $element->insertBefore($href, $sibling_node);
+            $element->removeChild($child_node);
+            $href->appendChild($child_node);
+            if ($sibling_node === NULL) {
+              $element->appendChild($href);
+            }
+            else {
+              $element->insertBefore($href, $sibling_node);
+            }
+          }
         }
       }
+      $narrative = $transformed_xml->asXML();
     }
+    catch (Exception $e) {
+      $narrative = t("Something is wrong with the EAD: @message", array("@message" => $e->getMessage()));
+    }
+  }
+  else {
+    $narrative = 'No EAD available';
   }
 
   $content = array();
-  $content['narrative'] = $transformed_xml->asXML();
+  $content['narrative'] = $narrative;
 
   $variables['content'] = $content;
 }
