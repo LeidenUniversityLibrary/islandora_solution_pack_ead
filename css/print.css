@@ -1,0 +1,35 @@
+/* EAD print styles */
+.ead-toc {
+    display: none !important;
+}
+
+.ead-content .body {
+    overflow: visible !important;
+    max-height: none !important;
+}
+
+.ead-content,.ead-whole,.ead-content,.dc-content,.dc-centercontent,body,.islandora-ead-object {
+    padding: 0 !important;
+    background: none !important;
+    border: 0 !important;
+    margin: 0 !important;
+    max-width: none !important;
+    background-color: white !important;
+}
+
+.tabs,.title,#page > #theheader,.region-page-top,.dc-sidebox,.dc-box,footer#thefooter, .dc-feature-bg, #block-islandora-solr-search-navigation {
+    display: none !important;
+}
+
+html {
+    color: black !important;
+}
+
+.ead-section {
+    page-break-before: always;
+    display:block;
+}
+
+#ead0{
+    page-break-before: avoid;
+}

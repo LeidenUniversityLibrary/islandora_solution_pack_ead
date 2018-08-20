@@ -198,10 +198,10 @@
 
                     <xsl:attribute name="class">
                         <xsl:text>nav</xsl:text>
-                    </xsl:attribute> 
-        
+                    </xsl:attribute>
+
                     <xsl:if test="ead:did/ead:unitid/@type = 'EAD' ">
-                    
+
                     <xsl:apply-templates select="ead:did/ead:unitid"/>
                     <xsl:text> </xsl:text>
                     </xsl:if>
@@ -221,7 +221,7 @@
                             <xsl:text>nav</xsl:text>
                         </xsl:attribute>
                         <xsl:if test="ead:did/ead:unitid/@type = 'EAD' ">
-                            
+
                             <xsl:apply-templates select="ead:did/ead:unitid"/>
                             <xsl:text> </xsl:text>
                         </xsl:if>
@@ -241,9 +241,9 @@
                             <xsl:text>nav</xsl:text>
                             </xsl:attribute>
                             <xsl:if test="ead:did/ead:unitid/@type = 'EAD' ">
-                                
+
                                 <xsl:apply-templates select="ead:did/ead:unitid"/>
-                                
+
                             </xsl:if>
                             <xsl:apply-templates
                             select="ead:did/ead:unittitle"/>
@@ -260,7 +260,7 @@
             </xsl:for-each>
           </ul>
           </xsl:if>
-        </li>  
+        </li>
         </xsl:if>
       </ul>
     </xsl:template>
@@ -269,7 +269,7 @@
     <xsl:template name="body">
 
 
-<!-- 
+<!--
         <div valign="middle" class="top" height="50">
 
             <xsl:attribute name="align">
@@ -327,23 +327,23 @@
 
         </div>
         -->
-        
+
         <div id="divMain" style="overflow:auto;" class="body">
 
             <xsl:call-template name="head"/>
 
             <xsl:apply-templates select="ead:archdesc"/>
-            
+
         </div>
-        
-		
+
+
     </xsl:template>
 
     <xsl:template name="head">
 
 
         <xsl:element name="a">
-            <xsl:attribute name="name">
+            <xsl:attribute name="class"><xsl:text>ead-section</xsl:text></xsl:attribute><xsl:attribute name="name">
                 <xsl:text>ead0</xsl:text>
             </xsl:attribute>
         </xsl:element>
@@ -426,26 +426,26 @@
             <xsl:element name="h4">
                 <xsl:choose>
                     <xsl:when test="$language = 'eng' ">
-                        
+
                         <xsl:text>Version update:</xsl:text>
-                        
+
                     </xsl:when>
                     <xsl:otherwise>
-                        
-                        
+
+
                         <xsl:text>Versie update:</xsl:text>
                     </xsl:otherwise>
-                    
-                    
+
+
                 </xsl:choose>
-                
+
             </xsl:element>
-            
+
             <xsl:value-of select="ead:eadheader/ead:revisiondesc/ead:change/ead:date"/>
-            
-            
+
+
             <xsl:element name="br"/>
-            
+
         </xsl:element>
 
 
@@ -497,7 +497,7 @@
 
 
         <xsl:element name="a">
-            <xsl:attribute name="name">
+            <xsl:attribute name="class"><xsl:text>ead-section</xsl:text></xsl:attribute><xsl:attribute name="name">
                 <xsl:text>ead1</xsl:text>
             </xsl:attribute>
         </xsl:element>
@@ -537,7 +537,7 @@
                                         <xsl:value-of select="@label"/>
                                         </xsl:when>
                                         <xsl:otherwise>
-              
+
                                             <xsl:choose>
                                                 <xsl:when test="$language = 'eng' ">
                                                     <xsl:text>Title:</xsl:text>
@@ -546,7 +546,7 @@
                                                     <xsl:text>Titel:</xsl:text>
                                                 </xsl:otherwise>
                                             </xsl:choose>
-              
+
                                         </xsl:otherwise>
                                     </xsl:choose>
                                 </b>
@@ -606,7 +606,7 @@
                                                 </xsl:otherwise>
                                             </xsl:choose>
                                         </xsl:when>
-                    
+
                                         <xsl:otherwise>
                                             <xsl:choose>
                                                 <xsl:when test="$language = 'eng' ">
@@ -791,8 +791,8 @@
         <xsl:choose>
             <xsl:when test="@type='context'">
 
-                <xsl:element name="a">
-                    <xsl:attribute name="name">
+                <xsl:element name="a" class="ead-section">
+                    <xsl:attribute name="class"><xsl:text>ead-section</xsl:text></xsl:attribute><xsl:attribute name="name">
                         <xsl:text>ead2</xsl:text>
                     </xsl:attribute>
                 </xsl:element>
@@ -851,7 +851,7 @@
             <xsl:when test="@type='content_and_structure'">
 
                 <xsl:element name="a">
-                    <xsl:attribute name="name">
+                    <xsl:attribute name="class"><xsl:text>ead-section</xsl:text></xsl:attribute><xsl:attribute name="name">
                         <xsl:text>ead3</xsl:text>
                     </xsl:attribute>
                 </xsl:element>
@@ -910,7 +910,7 @@
             <xsl:when test="@type='access_and_use'">
 
                 <xsl:element name="a">
-                    <xsl:attribute name="name">
+                    <xsl:attribute name="class"><xsl:text>ead-section</xsl:text></xsl:attribute><xsl:attribute name="name">
                         <xsl:text>ead4</xsl:text>
                     </xsl:attribute>
                 </xsl:element>
@@ -968,7 +968,7 @@
             <xsl:when test="@type='allied_material'">
 
                 <xsl:element name="a">
-                    <xsl:attribute name="name">
+                    <xsl:attribute name="class"><xsl:text>ead-section</xsl:text></xsl:attribute><xsl:attribute name="name">
                         <xsl:text>ead5</xsl:text>
                     </xsl:attribute>
                 </xsl:element>
@@ -1027,7 +1027,7 @@
             <xsl:when test="@type='appendices'">
 
                 <xsl:element name="a">
-                    <xsl:attribute name="name">
+                    <xsl:attribute name="class"><xsl:text>ead-section</xsl:text></xsl:attribute><xsl:attribute name="name">
                         <xsl:text>ead6</xsl:text>
                     </xsl:attribute>
                 </xsl:element>
@@ -1087,7 +1087,7 @@
     </xsl:template>
     <xsl:template match="ead:archdesc/ead:dsc">
 
-        <a name="ead-dsc"/>
+        <a name="ead-dsc" class="ead-section"/>
 
         <xsl:element name="br"/>
         <xsl:element name="br"/>
@@ -1356,7 +1356,7 @@
             <xsl:value-of select="."/>
         </xsl:element>
     </xsl:template>
-    
+
     <xsl:template match="ead:scopecontent//ead:archref">
         <xsl:variable name="link">
             <xsl:value-of select="@href"/>
@@ -1381,7 +1381,7 @@
             <xsl:value-of select="ead:unittitle"/>
         </xsl:element>
     </xsl:template>
-    
+
     <xsl:template match="ead:ref">
         <xsl:variable name="link">
             <xsl:value-of select="@target"/>
@@ -1816,7 +1816,7 @@
 
 
         <xsl:element name="a">
-            <xsl:attribute name="name">
+            <xsl:attribute name="class"><xsl:text>ead-section</xsl:text></xsl:attribute><xsl:attribute name="name">
                 <xsl:text>ead7</xsl:text>
             </xsl:attribute>
         </xsl:element>
@@ -1903,7 +1903,7 @@
     <xsl:template match="ead:bibliography">
         <a name="a20"/>
 
-        <!-- 
+        <!--
         <p>
             <b>
                 <xsl:choose>
@@ -1922,10 +1922,10 @@
                     </xsl:otherwise>
                 </xsl:choose>
             </b>
-        </p> 
+        </p>
         -->
         <xsl:element name="table">
-    
+
             <xsl:for-each select="*[local-name() != 'head' ]">
                 <xsl:apply-templates select="."/>
             </xsl:for-each>
@@ -2155,7 +2155,7 @@
         </tr>
         <xsl:apply-templates select="ead:c03"/>
     </xsl:template>
-   
+
    <xsl:template match="ead:c03">
         <tr>
             <td/>
@@ -2177,7 +2177,7 @@
         </tr>
         <xsl:apply-templates select="ead:c04"/>
     </xsl:template>
-	
+
     <xsl:template match="ead:c04">
         <tr>
             <td/>
@@ -2422,17 +2422,17 @@
 
 
     <xsl:template match="ead:daogrp">
-	<xsl:choose>		
+	<xsl:choose>
 		<xsl:when test="ead:daoloc[ @label= 'thumbnail' ]">
 			<xsl:element name="td">
 				<xsl:attribute name="width">
 					<xsl:text>20%</xsl:text>
 				</xsl:attribute>
-				
+
 				<xsl:attribute name="valign">
 					<xsl:text>top</xsl:text>
 				</xsl:attribute>
-				
+
 				<xsl:element name="a">
 					<xsl:attribute name="href">
 						<xsl:value-of select="ead:daoloc[ @label= 'reference' ]/@href"/>
@@ -2459,11 +2459,11 @@
 				</xsl:element>
 			</xsl:element>
 		</xsl:when>
-	</xsl:choose>	
+	</xsl:choose>
     </xsl:template>
 
 
-	
+
 
     <xsl:template name="item">
         <xsl:element name="table">
@@ -2473,7 +2473,7 @@
 
             <xsl:element name="tr">
 
-			<xsl:choose>		
+			<xsl:choose>
 				<xsl:when test="not(ead:did/ead:daogrp/ead:daoloc[ @label= 'thumbnail' ])">
 					<xsl:element name="td">
 						<xsl:attribute name="valign">
@@ -2485,8 +2485,8 @@
 					</xsl:element>
 				</xsl:when>
 			</xsl:choose>
-							
-			
+
+
                 <xsl:apply-templates select="ead:did/ead:daogrp"/>
                 <xsl:element name="td">
                     <xsl:attribute name="valign">
@@ -2494,7 +2494,7 @@
                     </xsl:attribute>
 
 
-							<xsl:for-each select="@id">			
+							<xsl:for-each select="@id">
 							<a>
 								<xsl:attribute name="name">
 									<xsl:value-of select="."/>
@@ -2502,7 +2502,7 @@
 							</a>
 							</xsl:for-each>
 
-				
+
                     <xsl:for-each select="ead:did">
                         <xsl:if test="ead:unitid[@type != 'PPN' ]">
                             <xsl:for-each select="ead:unitid">
@@ -2514,7 +2514,7 @@
                                         </b>
                                         </i>
                                     </xsl:when>
-									
+
                                     <xsl:otherwise>
                                         <xsl:if test="@type= 'signatuur' ">
                                         <i>
@@ -2533,18 +2533,18 @@
                                         </xsl:if>
                                     </xsl:otherwise>
                                 </xsl:choose>
-								
 
-								
+
+
                             </xsl:for-each>
-							
 
-							
+
+
                         </xsl:if>
-						
-						<xsl:choose>		
-							<xsl:when test="ead:daogrp/ead:daoloc[ @label= 'reference' ] ">			
-							
+
+						<xsl:choose>
+							<xsl:when test="ead:daogrp/ead:daoloc[ @label= 'reference' ] ">
+
 								<a>
 									 <xsl:attribute name="href">
 										<xsl:value-of select="ead:daogrp/ead:daoloc[ @label= 'reference' ]/@href"/>
@@ -2563,7 +2563,7 @@
 							 </xsl:otherwise>
 						</xsl:choose>
 						<br/>
-						
+
                         <xsl:if test="ead:unittitle">
                             <xsl:for-each select="ead:unittitle">
                                 <xsl:choose>
@@ -2594,7 +2594,7 @@
                                 <br/>
                             </xsl:for-each>
                         </xsl:if>
-                        
+
                         <xsl:if test="ead:abstract">
                             <xsl:for-each select="ead:abstract">
                                 <xsl:choose>
@@ -2625,7 +2625,7 @@
                                 <br/>
                             </xsl:for-each>
                         </xsl:if>
-                        
+
                         <xsl:if test="ead:origination">
                             <xsl:for-each select="ead:origination">
                                 <xsl:choose>
@@ -2836,14 +2836,14 @@
                     </xsl:if>
                     <xsl:if test="ead:scopecontent">
                         <xsl:for-each select="ead:scopecontent">
-                          
-                
+
+
                                     <i>
                                         <b>
-                                            
+
                                             <xsl:choose>
                                             <xsl:when test="ead:head">
-                                                <xsl:value-of select="ead:head"/>     
+                                                <xsl:value-of select="ead:head"/>
                                                 <xsl:if test="string-length( ead:head ) &gt; 0 ">
                                                 <xsl:element name="br"/>
                                                 </xsl:if>
@@ -2860,7 +2860,7 @@
                                             </xsl:choose>
                                         </b>
                                     </i>
-                    
+
                             <xsl:for-each select="*[local-name() != 'head' ]">
                                 <xsl:apply-templates select="."/>
                                 <br/>
@@ -2932,7 +2932,7 @@
                                     <xsl:text>100%</xsl:text>
 
                                 </xsl:attribute>
-                 
+
 
                                 <xsl:for-each select="*[local-name() != 'head' ]">
                                     <xsl:apply-templates select="."/>
@@ -2942,20 +2942,20 @@
                     </xsl:if>
                     <xsl:apply-templates select="ead:did/ead:dao"/>
                 </xsl:element>
-                
+
             </xsl:element>
             <xsl:if test="ead:did/ead:daogrp">
                 <xsl:element name="tr">
-        
+
                     <xsl:element name="td">
                         <xsl:attribute name="colspan">
                             <xsl:text>2</xsl:text>
                         </xsl:attribute>
-                        
-       
-                            <xsl:element name="hr"/> 
+
+
+                            <xsl:element name="hr"/>
                     </xsl:element>
-             
+
                 </xsl:element>
             </xsl:if>
         </xsl:element>
@@ -2976,7 +2976,7 @@
         <xsl:for-each select="ead:did">
             <xsl:choose>
                 <xsl:when test="$name = 'c01' ">
-            
+
                     <br/>
                     <h3>
                         <xsl:if test="ead:unitid">
@@ -2999,12 +2999,12 @@
                 </xsl:otherwise>
             </xsl:choose>
         </xsl:for-each>
-        
+
         <xsl:choose>
             <xsl:when test="ead:did/ead:daogrp">
-                
+
  <xsl:element name="table">
-     
+
      <xsl:element name="tr">
          <xsl:element name="td">
              <xsl:attribute name="width">
@@ -3019,11 +3019,11 @@
                      <xsl:attribute name="href">
                          <xsl:value-of select="ead:did/ead:daogrp/ead:daoloc[ @label= 'reference' ]/@href"/>
                      </xsl:attribute>
-                     
+
                      <xsl:attribute name="target">
                          <xsl:text>_blank</xsl:text>
                      </xsl:attribute>
-                     
+
                      <xsl:if test="ead:did/ead:daogrp/ead:daoloc[ @label= 'thumbnail' ] ">
                          <xsl:element name="img">
                              <xsl:attribute name="src">
@@ -3042,30 +3042,30 @@
 
 
 
-             
-             
+
+
          </xsl:element>
          <xsl:element name="td">
-             
+
              <xsl:call-template name="series-contents"/>
          </xsl:element>
-         
+
      </xsl:element>
-     
+
  </xsl:element>
-                
-              
-                
-                
+
+
+
+
             </xsl:when>
             <xsl:otherwise>
                 <xsl:call-template name="series-contents"/>
-                
+
             </xsl:otherwise>
-            
+
         </xsl:choose>
-        
-        
+
+
     </xsl:template>
 
 
@@ -3074,9 +3074,9 @@
             <xsl:apply-templates/>
         </p>
     </xsl:template>
-    
+
     <xsl:template name="series-contents">
-        
+
         <xsl:for-each select="ead:did">
         <xsl:if test="ead:origination">
             <xsl:for-each select="ead:origination">
@@ -3107,7 +3107,7 @@
                 <xsl:apply-templates/>
             </xsl:for-each>
         </xsl:if>
-        
+
         <xsl:if test="ead:abstract">
             <xsl:for-each select="ead:abstract">
                 <b>
@@ -3116,7 +3116,7 @@
                             <xsl:when test="@label">
                                 <xsl:value-of select="@label"/>
                             </xsl:when>
-                            
+
                             <xsl:when test="$language = 'eng' ">
                                 <xsl:text>Abstract: </xsl:text>
                             </xsl:when>
@@ -3130,7 +3130,7 @@
                 <xsl:element name="br"/>
             </xsl:for-each>
         </xsl:if>
-        
+
         <xsl:if test="ead:unitdate">
             <xsl:for-each select="ead:unitdate">
                 <i>
@@ -3211,7 +3211,7 @@
                                 <xsl:if test="string-length( ead:head ) &gt; 1">
                                     <xsl:element name="br"/>
                                 </xsl:if>
-                                
+
                             </xsl:when>
                             <xsl:when
                                 test="$language = 'eng' ">
@@ -3223,7 +3223,7 @@
                         </xsl:choose>
                     </b>
                 </i>
-                
+
                 <xsl:for-each select="*[local-name() != 'head' ]">
                     <xsl:apply-templates select="."/>
                     <br/>
@@ -3290,24 +3290,24 @@
                         </i>
                     </xsl:otherwise>
                 </xsl:choose>
-                
+
                 <xsl:element name="table">
                     <xsl:attribute name="width">
                         <xsl:text>100%</xsl:text>
-                        
+
                     </xsl:attribute>
-                    
-                    
+
+
                     <xsl:for-each select="*[local-name() != 'head' ]">
                         <xsl:apply-templates select="."/>
                     </xsl:for-each>
                 </xsl:element>
-                
+
 
             </xsl:for-each>
             </xsl:if>
-        
+
     </xsl:template>
-    
+
 
 </xsl:stylesheet>
