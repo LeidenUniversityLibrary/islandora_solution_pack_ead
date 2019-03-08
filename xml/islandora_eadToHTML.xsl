@@ -363,7 +363,7 @@
 
             <xsl:element name="img">
                 <xsl:attribute name="src">
-                    <xsl:text>https://disc.leidenuniv.nl/exlibris/dtl/u3_1/dtle/www_r_eng/icon/beeldmerk_wit.gif</xsl:text>
+                    <xsl:text>/sites/all/themes/uvl/img/beeldmerk_wit.gif</xsl:text>
 
                 </xsl:attribute>
 
@@ -828,7 +828,7 @@
                                 </xsl:attribute>
                                 <xsl:element name="img">
                                     <xsl:attribute name="src">
-                                        <xsl:text>https://socrates.leidenuniv.nl/exlibris/dtl/u3_1/dtle/www_r_eng/icon/top.gif</xsl:text>
+                                        <xsl:text>/sites/all/themes/uvl/img/top.gif</xsl:text>
                                     </xsl:attribute>
                                     <xsl:attribute name="border">
                                         <xsl:text>0</xsl:text>
@@ -887,7 +887,7 @@
                                 </xsl:attribute>
                                 <xsl:element name="img">
                                     <xsl:attribute name="src">
-                                        <xsl:text>https://socrates.leidenuniv.nl/exlibris/dtl/u3_1/dtle/www_r_eng/icon/top.gif</xsl:text>
+                                        <xsl:text>/sites/all/themes/uvl/img/top.gif</xsl:text>
                                     </xsl:attribute>
                                     <xsl:attribute name="border">
                                         <xsl:text>0</xsl:text>
@@ -945,7 +945,7 @@
                                 </xsl:attribute>
                                 <xsl:element name="img">
                                     <xsl:attribute name="src">
-                                        <xsl:text>https://socrates.leidenuniv.nl/exlibris/dtl/u3_1/dtle/www_r_eng/icon/top.gif</xsl:text>
+                                        <xsl:text>/sites/all/themes/uvl/img/top.gif</xsl:text>
                                     </xsl:attribute>
                                     <xsl:attribute name="border">
                                         <xsl:text>0</xsl:text>
@@ -1004,7 +1004,7 @@
                                 </xsl:attribute>
                                 <xsl:element name="img">
                                     <xsl:attribute name="src">
-                                        <xsl:text>https://socrates.leidenuniv.nl/exlibris/dtl/u3_1/dtle/www_r_eng/icon/top.gif</xsl:text>
+                                        <xsl:text>/sites/all/themes/uvl/img/top.gif</xsl:text>
                                     </xsl:attribute>
                                     <xsl:attribute name="border">
                                         <xsl:text>0</xsl:text>
@@ -1063,7 +1063,7 @@
                                 </xsl:attribute>
                                 <xsl:element name="img">
                                     <xsl:attribute name="src">
-                                        <xsl:text>https://socrates.leidenuniv.nl/exlibris/dtl/u3_1/dtle/www_r_eng/icon/top.gif</xsl:text>
+                                        <xsl:text>/sites/all/themes/uvl/img/top.gif</xsl:text>
                                     </xsl:attribute>
                                     <xsl:attribute name="border">
                                         <xsl:text>0</xsl:text>
@@ -1128,7 +1128,7 @@
                         </xsl:attribute>
                         <xsl:element name="img">
                             <xsl:attribute name="src">
-                                <xsl:text>https://socrates.leidenuniv.nl/exlibris/dtl/u3_1/dtle/www_r_eng/icon/top.gif</xsl:text>
+                                <xsl:text>/sites/all/themes/uvl/img/top.gif</xsl:text>
                             </xsl:attribute>
                             <xsl:attribute name="border">
                                 <xsl:text>0</xsl:text>
@@ -1855,7 +1855,7 @@
                         </xsl:attribute>
                         <xsl:element name="img">
                             <xsl:attribute name="src">
-                                <xsl:text>https://socrates.leidenuniv.nl/exlibris/dtl/u3_1/dtle/www_r_eng/icon/top.gif</xsl:text>
+                                <xsl:text>/sites/all/themes/uvl/img/top.gif</xsl:text>
                             </xsl:attribute>
                             <xsl:attribute name="border">
                                 <xsl:text>0</xsl:text>
@@ -2109,7 +2109,7 @@
                         </xsl:attribute>
                         <xsl:element name="img">
                             <xsl:attribute name="src">
-                                <xsl:text>https://socrates.leidenuniv.nl/exlibris/dtl/u3_1/dtle/www_r_eng/icon/top.gif</xsl:text>
+                                <xsl:text>/sites/all/themes/uvl/img/top.gif</xsl:text>
                             </xsl:attribute>
                             <xsl:attribute name="border">
                                 <xsl:text>0</xsl:text>
